@@ -1,0 +1,138 @@
+:root {
+  color-scheme: light;
+  font-family: system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #f7f7f8;
+  color: #1a1a1a;
+}
+
+.auth-page {
+  max-width: 360px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.field label {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.field input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.field input:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 1px;
+}
+
+.field-error {
+  color: #b91c1c;
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.form-error {
+  color: #b91c1c;
+  font-size: 0.875rem;
+}
+
+.form-notice {
+  color: #15803d;
+  font-size: 0.875rem;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: 1px solid #2563eb;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+}
+
+button:focus-visible {
+  outline: 2px solid #1e3a8a;
+  outline-offset: 2px;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+button[type="button"] {
+  background: transparent;
+  color: #2563eb;
+}
+
+button + button {
+  margin-left: 0.5rem;
+}
+
+.plans-page {
+  max-width: 640px;
+}
+
+.plan-cards {
+  display: flex;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.plan-card {
+  flex: 1;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.plan-card-current {
+  border-color: #2563eb;
+  border-width: 2px;
+}
+
+.plan-current-badge {
+  color: #2563eb;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sign-out-button {
+  background: transparent;
+  color: #2563eb;
+  border: 1px solid #2563eb;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.875rem;
+}
+
+.cancel-confirm {
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}

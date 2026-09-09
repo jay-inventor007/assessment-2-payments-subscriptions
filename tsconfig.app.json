@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "useDefineForClassFields": true,
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    // shared/validation.ts imports zod via an "npm:zod@x" specifier so it
+    // also resolves unmodified inside Deno Edge Functions (see
+    // vite.config.ts). Vite's dev/build resolution is handled by the alias
+    // there; this mapping is the equivalent for tsc's own type-checking,
+    // which doesn't know the "npm:" scheme at all otherwise.
+    "paths": {
+      "npm:zod@*": ["./node_modules/zod"]
+    },
+
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "include": ["src"]
+}
