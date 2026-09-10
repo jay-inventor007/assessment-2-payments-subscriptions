@@ -27,6 +27,25 @@ Deno.serve(async (req) => {
     return json(req, { error: "Invalid input", issues: parsed.error.flatten() }, 400);
   }
 
+  // Refuse a second checkout while a paid plan is already active, rather than
+  // silently taking a second payment for it - a user who already has an
+  // active subscription has upgrade/downgrade/cancel for changing it, not
+  // another trip through checkout.
+  const { data: existingSubscription, error: existingError } = await db
+    .from("subscriptions")
+    .select("plan, status")
+    .eq("user_id", user.id)
+    .maybeSingle();
+  if (existingError) throw existingError;
+
+  if (existingSubscription && existingSubscription.plan !== "free" && existingSubscription.status === "active") {
+    return json(
+      req,
+      { error: "You already have an active subscription. Use upgrade, downgrade or cancel instead." },
+      409,
+    );
+  }
+
   const plan = plans[parsed.data.plan];
   const reference = crypto.randomUUID();
 
